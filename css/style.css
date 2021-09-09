@@ -1,0 +1,41 @@
+/**************************************/
+/********* NAVIGATION SECTION *********/
+/**************************************/
+
+.header {
+  padding: 0 9rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-bar-height);
+}
+
+.nav__logo {
+  height: 4.8rem;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  list-style: none;
+}
+
+.nav__link:link,
+.nav__link:visited {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.nav__link--btn:link,
+.nav__link--btn:visited {
+  background-color: var(--color-primary);
+  padding: 0.8rem 2.4rem;
+  border-radius: 50px;
+}

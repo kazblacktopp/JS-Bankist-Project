@@ -398,3 +398,26 @@
   border: none;
   border-radius: 50%;
 }
+
+/**************************************/
+/********** SIGN-UP SECTION ***********/
+/**************************************/
+
+.section__sign-up {
+  background-color: #37383d;
+  text-align: center;
+  padding: 10rem 3rem;
+}
+
+.section__sign-up .section__header {
+  margin-bottom: 6rem;
+}
+
+.section__sign-up .section__description {
+  color: #fff;
+}
+
+.section__sign-up .btn {
+  padding: 2rem 5rem;
+  font-size: 1.9rem;
+}

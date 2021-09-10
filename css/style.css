@@ -407,6 +407,7 @@
   background-color: #37383d;
   text-align: center;
   padding: 10rem 3rem;
+  border-bottom: 1px solid #444;
 }
 
 .section__sign-up .section__header {
@@ -420,4 +421,46 @@
 .section__sign-up .btn {
   padding: 2rem 5rem;
   font-size: 1.9rem;
+}
+
+/*************************************/
+/********** FOOTER SECTION ***********/
+/*************************************/
+
+.footer {
+  /* Children: .footer__nav (ul), .footer__logo (img), .footer__copyright (p) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  background-color: #37383d;
+  font-size: 1.6rem;
+  padding: 10rem 0;
+}
+
+.footer__nav {
+  /* Children: 7x .footer__item (li) */
+  display: flex;
+  gap: 4rem;
+  list-style: none;
+}
+
+.footer__item {
+  /* Children: .footer__link (a) */
+}
+
+.footer__link {
+  color: #eee;
+  text-decoration: none;
+}
+
+.footer__logo {
+  width: 5rem;
+  width: 5rem;
+}
+
+.footer__copyright {
+  /* Children: .twitter__link (a) */
+  color: #aaa;
+  font-size: 1.4rem;
 }

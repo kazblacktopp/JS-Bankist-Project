@@ -429,7 +429,6 @@
 /*************************************/
 
 .footer {
-  /* Children: .footer__nav (ul), .footer__logo (img), .footer__copyright (p) */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,14 +439,9 @@
 }
 
 .footer__nav {
-  /* Children: 7x .footer__item (li) */
   display: flex;
   gap: 4rem;
   list-style: none;
-}
-
-.footer__item {
-  /* Children: .footer__link (a) */
 }
 
 .footer__link {
@@ -461,7 +455,6 @@
 }
 
 .footer__copyright {
-  /* Children: .twitter__link (a) */
   color: #aaa;
   font-size: 1.4rem;
 }
@@ -471,7 +464,6 @@
 /************************************/
 
 .modal {
-  /* Children: .btn__close-modal, .modal__heading, .modal__form */
   max-width: 60rem;
   background: #f3f3f3;
   position: fixed;
@@ -503,7 +495,6 @@
 }
 
 .modal__form {
-  /* Children: label, input, .btn */
   display: grid;
   grid-template-columns: 1fr 2fr;
   row-gap: 2.6rem;

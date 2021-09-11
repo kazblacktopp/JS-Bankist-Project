@@ -200,6 +200,7 @@
   background-color: var(--color-primary);
   border-radius: 50px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .operations__tab {
@@ -463,4 +464,79 @@
   /* Children: .twitter__link (a) */
   color: #aaa;
   font-size: 1.4rem;
+}
+
+/************************************/
+/********** MODAL SECTION ***********/
+/************************************/
+
+.modal {
+  /* Children: .btn__close-modal, .modal__heading, .modal__form */
+  max-width: 60rem;
+  background: #f3f3f3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 6rem 6rem 5rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.btn__close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  border: none;
+  font-size: 4rem;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+}
+
+.modal__heading {
+  font-size: 3.2rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.modal__form {
+  /* Children: label, input, .btn */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 2.6rem;
+  column-gap: 2rem;
+  align-items: center;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 0 3rem;
+}
+
+.modal__form input {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  font-size: inherit;
+}
+
+.modal__form button {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  margin-top: 1rem;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
 }

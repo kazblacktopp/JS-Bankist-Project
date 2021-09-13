@@ -91,6 +91,7 @@
 .nav {
   justify-content: space-between;
   height: var(--nav-bar-height);
+  transition: all 1s;
 }
 
 .nav__logo {
@@ -291,7 +292,7 @@
 }
 
 .testimonial::before {
-  content: "\201C";
+  content: '\201C';
   font-size: 20rem;
   top: 37px;
   left: -68px;
@@ -469,6 +470,7 @@
 /************************************/
 
 /* Fix for flexbox gap property missing in some Safari browsers */
+
 .js-no-flexbox-gap .operations__tab:not(:last-child) {
   margin-right: 2.4rem;
 }
@@ -483,4 +485,24 @@
 
 .js-no-flexbox-gap .footer__logo {
   margin-bottom: 5rem;
+}
+
+/* Styles for sticky navigation bar on page scroll */
+
+.js-sticky .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 20px rgba(66, 48, 48, 0.07);
+  z-index: 99;
+}
+
+.js-sticky .section__hero {
+  margin-top: var(--nav-bar-height);
+}
+
+.js-sticky .nav {
+  height: 6.4rem;
 }

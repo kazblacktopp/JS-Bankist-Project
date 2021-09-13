@@ -161,6 +161,11 @@ blockquote {
   background-color: var(--color-primary);
   border-radius: 50px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-darker);
 }
 
 .highlight {

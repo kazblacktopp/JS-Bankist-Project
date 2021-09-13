@@ -2,6 +2,12 @@
 /********** SHARED STYLES ***********/
 /************************************/
 
+.nav__link--btn:link,
+.nav__link--btn:visited,
+.btn__text {
+  transition: all 0.3s;
+}
+
 .features__title,
 .modal__heading {
   font-weight: 700;
@@ -39,7 +45,6 @@
 .btn__text,
 .btn__close-modal {
   background: none;
-  cursor: pointer;
 }
 
 .btn__text,
@@ -47,6 +52,7 @@
 .dots__dot,
 .btn__close-modal {
   border: none;
+  cursor: pointer;
 }
 
 .btn__text,
@@ -103,6 +109,11 @@
   border-radius: 50px;
   color: #222;
 }
+
+.nav__link--btn:hover,
+.nav__link--btn:active {
+  background-color: var(--color-primary-darker);
+}
 /**************************************/
 /************ HERO SECTION ************/
 /**************************************/
@@ -126,9 +137,13 @@
 }
 
 .btn__text {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
+}
+
+.btn__text:hover {
+  color: var(--color-primary-darker);
 }
 
 .hero__img {
@@ -192,8 +207,16 @@
   background-color: var(--color-secondary);
 }
 
+.operations__tab--1:hover {
+  background-color: var(--color-secondary-darker);
+}
+
 .operations__tab--3 {
   background-color: var(--color-tertiary);
+}
+
+.operations__tab--3:hover {
+  background-color: var(--color-tertiary-darker);
 }
 
 .operations__tab--active {

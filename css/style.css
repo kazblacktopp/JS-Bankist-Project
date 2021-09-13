@@ -463,3 +463,24 @@
 .hidden {
   display: none;
 }
+
+/************************************/
+/******** JAVASCRIPT STYLES *********/
+/************************************/
+
+/* Fix for flexbox gap property missing in some Safari browsers */
+.js-no-flexbox-gap .operations__tab:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.js-no-flexbox-gap .dots__dot:not(:last-child) {
+  margin-right: 1.8rem;
+}
+
+.js-no-flexbox-gap .footer ul {
+  margin-bottom: 5rem;
+}
+
+.js-no-flexbox-gap .footer__logo {
+  margin-bottom: 5rem;
+}

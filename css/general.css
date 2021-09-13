@@ -199,3 +199,11 @@ blockquote {
 .margin-bottom--lge {
   margin-bottom: 12rem;
 }
+
+/***********************************/
+/******** JAVASCRIPT STYLES ********/
+/***********************************/
+
+.js-no-flexbox-gap .nav__links li:not(:last-child) {
+  margin-right: 4rem;
+}

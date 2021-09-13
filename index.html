@@ -15,29 +15,33 @@
   </head>
   <body>
     <header class="header">
-      <nav class="nav">
-        <a href="#" class="img__link">
+      <nav class="nav flex">
+        <a href="#">
           <img src="img/logo.png" alt="Bankist Logo" class="nav__logo" />
         </a>
-        <ul class="nav__links">
+        <ul class="nav__links flex">
           <li>
-            <a href="#section--1" class="nav__link">Features</a>
+            <a href="#section--1" class="main-nav__link nav__link">Features</a>
           </li>
           <li>
-            <a href="#section--2" class="nav__link">Operations</a>
+            <a href="#section--2" class="main-nav__link nav__link"
+              >Operations</a
+            >
           </li>
           <li>
-            <a href="#" class="nav__link">Testimonals</a>
+            <a href="#" class="main-nav__link nav__link">Testimonals</a>
           </li>
           <li>
-            <a href="#" class="nav__link nav__link--btn">Open account</a>
+            <a href="#" class="main-nav__link nav__link nav__link--btn"
+              >Open account</a
+            >
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="section section__hero">
-        <header class="hero__container">
+      <section class="section section__hero flex">
+        <header class="hero__container grid">
           <h1 class="heading__primary">
             When <span class="highlight">banking</span> meets
             <span class="highlight">minimalist</span>
@@ -49,7 +53,7 @@
           <img
             src="img/hero.png"
             alt="Minimalist banking items"
-            class="hero__img"
+            class="hero__img grid-col__2-3"
           />
         </header>
       </section>
@@ -61,10 +65,10 @@
             Everything you need in a modern bank and more.
           </h3>
         </header>
-        <div class="features">
+        <div class="features grid center__v-h">
           <img src="img/digital.jpg" alt="Computer" class="features__img" />
           <div class="features__info">
-            <div class="features__icon">
+            <div class="features__icon flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-monitor"></use>
               </svg>
@@ -77,7 +81,7 @@
             </p>
           </div>
           <div class="features__info">
-            <div class="features__icon">
+            <div class="features__icon flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-trending-up"></use>
               </svg>
@@ -92,7 +96,7 @@
           <img src="img/grow.jpg" alt="Plant in vase" class="features__img" />
           <img src="img/card.jpg" alt="Credit card" class="features__img" />
           <div class="features__info">
-            <div class="features__icon">
+            <div class="features__icon flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-credit-card"></use>
               </svg>
@@ -115,7 +119,7 @@
           </h3>
         </header>
         <div class="operations">
-          <div class="operations__tab-container">
+          <div class="operations__tab-container flex">
             <button
               class="
                 btn
@@ -131,48 +135,64 @@
               <span>03</span> Instant Closing
             </button>
           </div>
-          <div class="operations__content operations__content--active">
-            <div class="operations__icon operations__icon--1">
+          <div
+            class="
+              operations__content
+              align-items__center
+              operations__content--active
+            "
+          >
+            <div class="operations__icon operations__icon--1 flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-upload"></use>
               </svg>
             </div>
-            <h5 class="operations__heading">
-              Transfer money to anyone, instantly! No fees, no BS.
-            </h5>
-            <p>
+            <h5>Transfer money to anyone, instantly! No fees, no BS.</h5>
+            <p class="grid-col__2-3">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
-          <div class="operations__content">
-            <div class="operations__icon operations__icon--2">
+          <div
+            class="
+              operations__content
+              align-items__center
+              operations__content--active
+            "
+          >
+            <div class="operations__icon operations__icon--2 flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-home"></use>
               </svg>
             </div>
-            <h5 class="operations__heading">
+            <h5>
               Buy a home or make your dreams come true, with instant loans.
             </h5>
-            <p>
+            <p class="grid-col__2-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
               voluptatum, labore autem iste, suscipit non rerum consectetur
               corrupti culpa explicabo deserunt. Laboriosam aperiam voluptates
               odio in, vitae unde repellat rem?
             </p>
           </div>
-          <div class="operations__content">
-            <div class="operations__icon operations__icon--3">
+          <div
+            class="
+              operations__content
+              align-items__center
+              operations__content--active
+            "
+          >
+            <div class="operations__icon operations__icon--3 flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-user-x"></use>
               </svg>
             </div>
-            <h5 class="operations__heading">
+            <h5>
               No longer need your account? No problem! Close it instantly.
             </h5>
-            <p>
+            <p class="grid-col__2-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
               dolorum eum exercitationem ex natus placeat laboriosam culpa cum,
               soluta quo iusto nobis! Labore eaque commodi reiciendis
@@ -189,8 +209,8 @@
             Millions of Bankists are already making their lives simpler.
           </h3>
         </header>
-        <div class="slider">
-          <div class="slide slide--1">
+        <div class="slider grid center__v-h">
+          <div class="slide slide--1 grid-col__2-3">
             <div class="testimonial">
               <h5 class="testimonial__heading">
                 Best financial decision ever!
@@ -203,14 +223,14 @@
                 id alias reiciendis, perferendis facere pariatur dolore veniam
                 autem esse non voluptatem saepe provident nihil molestiae.
               </blockquote>
-              <address class="testimonial__author">
+              <address class="testimonial__author grid col-gap__2">
                 <img src="img/user-1.jpg" alt="" class="testimonial__photo" />
                 <h6 class="testimonial__name">Aarav Lynn</h6>
                 <p class="testimonial__location">San Francisco, USA</p>
               </address>
             </div>
           </div>
-          <div class="slide slide--2">
+          <div class="slide slide--2 grid-col__2-3">
             <div class="testimonial">
               <h5 class="testimonial__heading">
                 The last step to becoming a complete minimalist.
@@ -229,7 +249,7 @@
               </address>
             </div>
           </div>
-          <div class="slide slide--3">
+          <div class="slide slide--3 grid-col__2-3">
             <div class="testimonial">
               <h5 class="testimonial__heading">
                 Finally free from old-school banks.
@@ -251,7 +271,7 @@
           </div>
           <button class="slider__btn slider__btn--left">&larr;</button>
           <button class="slider__btn slider__btn--right">&rarr;</button>
-          <div class="dots">
+          <div class="dots flex grid-col__2-3">
             <button class="dots__dot"></button>
             <button class="dots__dot"></button>
             <button class="dots__dot"></button>
@@ -259,7 +279,7 @@
         </div>
       </section>
 
-      <section class="section section__sign-up">
+      <section class="section section__sign-up center-text">
         <header class="section__header">
           <h3 class="section__description">
             The best day to join Bankist was one year ago. The second best is
@@ -269,40 +289,41 @@
         <button class="btn">Open your free account today!</button>
       </section>
     </main>
-    <footer class="footer">
-      <ul class="footer__nav">
-        <li><a href="#" class="footer__link">About</a></li>
+    <footer class="footer flex">
+      <ul class="nav__links flex">
+        <li><a href="#" class="footer__link nav__link">About</a></li>
         <li>
-          <a href="#" class="footer__link">Pricing</a>
+          <a href="#" class="footer__link nav__link">Pricing</a>
         </li>
         <li>
-          <a href="#" class="footer__link">Terms of Use</a>
+          <a href="#" class="footer__link nav__link">Terms of Use</a>
         </li>
         <li>
-          <a href="#" class="footer__link">Privacy Policy</a>
+          <a href="#" class="footer__link nav__link">Privacy Policy</a>
         </li>
         <li>
-          <a href="#" class="footer__link">Careers</a>
+          <a href="#" class="footer__link nav__link">Careers</a>
         </li>
-        <li><a href="#" class="footer__link">Blog</a></li>
+        <li><a href="#" class="footer__link nav__link">Blog</a></li>
         <li>
-          <a href="#" class="footer__link">Contact Us</a>
+          <a href="#" class="footer__link nav__link">Contact Us</a>
         </li>
       </ul>
       <img src="img/icon.png" alt="Logo" class="footer__logo" />
       <p class="footer__copyright">
         &copy; Copyright by
-        <a href="#" class="footer__link">Jonas Schmedtmann</a>. Use for learning
-        or your portfolio. Don't use to teach. Don't claim as your own product.
+        <a href="#" class="twitter__link nav__link">Jonas Schmedtmann</a>. Use
+        for learning or your portfolio. Don't use to teach. Don't claim as your
+        own product.
       </p>
     </footer>
 
     <div class="modal hidden">
       <button class="btn__close-modal">&times;</button>
-      <h2 class="modal__heading">
+      <h2 class="modal__heading center-text">
         Open your bank account in just <span class="highlight">5 minutes</span>
       </h2>
-      <form action="" class="modal__form">
+      <form action="" class="modal__form grid col-gap__2 align-items__center">
         <label>First Name</label>
         <input type="text" />
         <label>Last Name</label>

@@ -73,8 +73,8 @@
   height: 4.8rem;
 }
 
-.main-nav__link:link,
-.main-nav__link:visited {
+.nav .nav__link:link,
+.nav .nav__link:visited {
   font-weight: 400;
 }
 
@@ -90,6 +90,7 @@
 .nav__link--btn:active {
   background-color: var(--color-primary-darker);
 }
+
 /**************************************/
 /************ HERO SECTION ************/
 /**************************************/
@@ -359,13 +360,13 @@
   padding: 10rem 0;
 }
 
-.footer__link:link,
-.footer__link:visited {
+.footer .nav__link:link,
+.footer .nav__link:visited {
   font-size: 1.6rem;
 }
 
-.footer__link:link,
-.footer__link:visited,
+.footer .nav__link:link,
+.footer .nav__link:visited,
 .attribution__link:link,
 .attribution__link:visited {
   color: #eee;
@@ -378,6 +379,12 @@
 .footer__copyright,
 .footer__attribution {
   color: #aaa;
+}
+
+.footer__copyright,
+.footer__attribution,
+.footer .attribution__link:link,
+.footer .attribution__link:visited {
   font-size: 1.4rem;
 }
 

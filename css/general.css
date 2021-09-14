@@ -78,6 +78,14 @@ blockquote {
   font-size: 1.7rem;
 }
 
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
 .heading__primary {
   font-size: 5.4rem;
   line-height: 1.4;
@@ -151,17 +159,14 @@ blockquote {
 .nav__link:visited {
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s;
 }
 
 .btn {
-  border: none;
   font-size: 1.6rem;
-  font-family: inherit;
   padding: 1.2rem 4.6rem;
   background-color: var(--color-primary);
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s;
 }
 
 .btn:hover {

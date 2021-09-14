@@ -2,12 +2,6 @@
 /********** SHARED STYLES ***********/
 /************************************/
 
-.nav__link--btn:link,
-.nav__link--btn:visited,
-.btn__text {
-  transition: all 0.3s;
-}
-
 .features__title,
 .modal__heading {
   font-weight: 700;
@@ -34,25 +28,6 @@
 .slider__btn,
 .dots__dot {
   border-radius: 50%;
-}
-
-.btn__text,
-.slider__btn,
-.btn__close-modal {
-  font-family: inherit;
-}
-
-.btn__text,
-.btn__close-modal {
-  background: none;
-}
-
-.btn__text,
-.slider__btn,
-.dots__dot,
-.btn__close-modal {
-  border: none;
-  cursor: pointer;
 }
 
 .btn__text,

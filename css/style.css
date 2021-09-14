@@ -391,8 +391,8 @@
 
 .footer__link:link,
 .footer__link:visited,
-.twitter__link:link,
-.twitter__link:visited {
+.attribution__link:link,
+.attribution__link:visited {
   color: #eee;
 }
 
@@ -400,7 +400,8 @@
   height: 5rem;
 }
 
-.footer__copyright {
+.footer__copyright,
+.footer__attribution {
   color: #aaa;
   font-size: 1.4rem;
 }

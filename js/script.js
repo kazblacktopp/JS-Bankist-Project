@@ -28,12 +28,12 @@ if (!checkFlexGap()) {
 }
 
 ///////////////////////////////////////////////
-// Create Sticky Navigation Bar on page scroll
+// Create sticky navigation for all browsers
 
-const heroEl = document.querySelector('.section__hero');
+const sectionHeroEl = document.querySelector('.section__hero');
 const navBarEl = document.querySelector('.nav');
 
-// Get height of nav bar and convert to negative pixels
+// Get height of nav bar and convert to negative pixel string
 const navBarOffset = '-' + navBarEl.offsetHeight + 'px';
 
 const obs = new IntersectionObserver(
@@ -48,8 +48,7 @@ const obs = new IntersectionObserver(
     rootMargin: navBarOffset,
   }
 );
-
-obs.observe(heroEl);
+obs.observe(sectionHeroEl);
 
 ///////////////////////////////////
 // Update copyright year in footer
@@ -59,8 +58,8 @@ const currentYear = new Date().getFullYear();
 
 year.textContent = currentYear;
 
-/////////////////////////////////////
-// Create smooth scrolling for links
+////////////////////////////////////////////
+// Create smooth scrolling for all browsers
 
 const alllinkEls = document.querySelectorAll('a:link');
 
@@ -70,12 +69,15 @@ alllinkEls.forEach(link => {
 
     if (!href.startsWith('http')) e.preventDefault();
 
+    // Scroll back to top of page
     if (href === '#') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
     }
+
+    // Scroll to relevant section on page
     if (href !== '#' && href.startsWith('#')) {
       const sectionEl = document.querySelector(href);
       sectionEl.scrollIntoView({
@@ -83,4 +85,24 @@ alllinkEls.forEach(link => {
       });
     }
   });
+});
+
+/////////////////////////
+// Animate modal overlay
+
+const openModalBtns = document.querySelectorAll('.btn__show-modal');
+const closeModalBtn = document.querySelector('.btn__close-modal');
+const modalEl = document.querySelector('.modal');
+const overlayEl = document.querySelector('.overlay');
+
+openModalBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modalEl.classList.remove('hidden');
+    overlayEl.classList.remove('hidden');
+  });
+});
+
+closeModalBtn.addEventListener('click', () => {
+  modalEl.classList.add('hidden');
+  overlayEl.classList.add('hidden');
 });

@@ -50,3 +50,11 @@ const obs = new IntersectionObserver(
 );
 
 obs.observe(heroEl);
+
+///////////////////////////////////////////////////////////////
+// Update copyright year in footer
+
+const year = document.querySelector('.year');
+const currentYear = new Date().getFullYear();
+
+year.textContent = currentYear;

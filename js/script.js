@@ -1,6 +1,6 @@
 'use strict';
 
-///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 // Fix for flexbox gap property missing in some Safari browsers
 
 const checkFlexGap = () => {
@@ -27,7 +27,7 @@ if (!checkFlexGap()) {
   console.log('Flexbox gap is not supported');
 }
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////
 // Create Sticky Navigation Bar on page scroll
 
 const heroEl = document.querySelector('.section__hero');
@@ -51,10 +51,36 @@ const obs = new IntersectionObserver(
 
 obs.observe(heroEl);
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////
 // Update copyright year in footer
 
 const year = document.querySelector('.year');
 const currentYear = new Date().getFullYear();
 
 year.textContent = currentYear;
+
+/////////////////////////////////////
+// Create smooth scrolling for links
+
+const alllinkEls = document.querySelectorAll('a:link');
+
+alllinkEls.forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+
+    if (!href.startsWith('http')) e.preventDefault();
+
+    if (href === '#') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+    if (href !== '#' && href.startsWith('#')) {
+      const sectionEl = document.querySelector(href);
+      sectionEl.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  });
+});

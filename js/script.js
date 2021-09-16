@@ -87,6 +87,14 @@ alllinkEls.forEach(link => {
   });
 });
 
+const btnScrollToEl = document.querySelector('.btn__scroll-to');
+const section1El = document.getElementById('section--1');
+
+btnScrollToEl.addEventListener('click', e => {
+  e.preventDefault();
+  section1El.scrollIntoView({ behavior: 'smooth' });
+});
+
 /////////////////////////
 // Animate modal overlay
 

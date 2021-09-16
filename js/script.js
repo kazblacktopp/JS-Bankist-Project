@@ -95,14 +95,23 @@ const closeModalBtn = document.querySelector('.btn__close-modal');
 const modalEl = document.querySelector('.modal');
 const overlayEl = document.querySelector('.overlay');
 
-openModalBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    modalEl.classList.remove('hidden');
-    overlayEl.classList.remove('hidden');
-  });
-});
+const openModal = e => {
+  e.preventDefault();
+  modalEl.classList.remove('hidden');
+  overlayEl.classList.remove('hidden');
+};
 
-closeModalBtn.addEventListener('click', () => {
+const closeModal = () => {
   modalEl.classList.add('hidden');
   overlayEl.classList.add('hidden');
+};
+
+openModalBtns.forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+
+closeModalBtn.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) closeModal();
 });

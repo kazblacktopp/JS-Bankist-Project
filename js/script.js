@@ -45,20 +45,21 @@ if (!checkFlexGap()) {
 // Create sticky navigation for all browsers
 
 // Get height of nav bar and convert to negative pixel string
-const navBarOffset = '-' + navBarEl.offsetHeight + 'px';
+const navBarOffset = `-${navBarEl.offsetHeight}px`;
 
-const obs = new IntersectionObserver(
-  entries => {
-    const ent = entries[0];
-    if (!ent.isIntersecting) document.body.classList.add('js-sticky');
-    if (ent.isIntersecting) document.body.classList.remove('js-sticky');
-  },
-  {
-    root: null /* Viewport */,
-    threshold: 0,
-    rootMargin: navBarOffset,
-  }
-);
+const stickyNav = entries => {
+  const ent = entries[0];
+  if (!ent.isIntersecting) document.body.classList.add('js-sticky');
+  else document.body.classList.remove('js-sticky');
+};
+
+const obsOptions = {
+  root: null /* Viewport */,
+  threshold: 0,
+  rootMargin: navBarOffset,
+};
+
+const obs = new IntersectionObserver(stickyNav, obsOptions);
 obs.observe(sectionHeroEl);
 
 ///////////////////////////////////

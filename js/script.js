@@ -95,3 +95,51 @@ document.body.addEventListener('click', function (e) {
     });
   }
 });
+
+/////////////////////////
+// Animate modal overlay
+
+const openModal = e => {
+  e.preventDefault();
+  modalEl.classList.remove('hidden');
+  overlayEl.classList.remove('hidden');
+};
+
+const closeModal = () => {
+  modalEl.classList.add('hidden');
+  overlayEl.classList.add('hidden');
+};
+
+openModalBtns.forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+
+closeModalBtn.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) closeModal();
+});
+
+////////////////////////////
+// Activate Operations Tabs
+
+tabsContainerEl.addEventListener('click', e => {
+  e.preventDefault();
+  const clicked = e.target.closest('.operations__tab');
+
+  if (!clicked) return;
+
+  // Active tab
+  tabsEl.forEach(tab => tab.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+
+  // Activate content
+
+  const tabNumber = clicked.dataset.tab;
+  tabsContentEl.forEach(content =>
+    content.classList.remove('operations__content--active')
+  );
+  document
+    .querySelector(`.operations__content--${tabNumber}`)
+    .classList.add('operations__content--active');
+});

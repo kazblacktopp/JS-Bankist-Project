@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <nav class="nav flex">
-        <a href="#">
+        <a href="#" class="nav__link">
           <img src="img/logo.png" alt="Bankist Logo" class="nav__logo" />
         </a>
         <ul class="nav__links flex">
@@ -47,9 +47,16 @@
           <h4 class="hero__description">
             A simpler banking experience for a simpler life.
           </h4>
-          <button class="btn__text btn__scroll-to">
-            Learn more &DownArrow;
-          </button>
+          <ul class="nav__links">
+            <li>
+              <a
+                href="#section--1"
+                class="nav__link link__text link__scroll-to"
+              >
+                Learn more &DownArrow;
+              </a>
+            </li>
+          </ul>
           <img
             src="img/hero.png"
             alt="Minimalist banking items"
@@ -125,19 +132,20 @@
                 btn
                 operations__tab operations__tab--1 operations__tab--active
               "
+              data-tab="1"
             >
               <span>01</span> Instant Transfers
             </button>
-            <button class="btn operations__tab operations__tab--2">
+            <button class="btn operations__tab operations__tab--2" data-tab="2">
               <span>02</span> Instant Loans
             </button>
-            <button class="btn operations__tab operations__tab--3">
+            <button class="btn operations__tab operations__tab--3" data-tab="3">
               <span>03</span> Instant Closing
             </button>
           </div>
           <div
             class="
-              operations__content
+              operations__content operations__content--1
               align-items__center
               operations__content--active
             "
@@ -155,7 +163,12 @@
               nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
-          <div class="operations__content align-items__center">
+          <div
+            class="
+              operations__content operations__content--2
+              align-items__center
+            "
+          >
             <div class="operations__icon operations__icon--2 flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-home"></use>
@@ -171,7 +184,12 @@
               odio in, vitae unde repellat rem?
             </p>
           </div>
-          <div class="operations__content align-items__center">
+          <div
+            class="
+              operations__content operations__content--3
+              align-items__center
+            "
+          >
             <div class="operations__icon operations__icon--3 flex">
               <svg>
                 <use xlink:href="img/icons.svg#icon-user-x"></use>
@@ -299,9 +317,7 @@
           <a href="#" class="nav__link">Contact Us</a>
         </li>
       </ul>
-      <a href="#">
-        <img src="img/icon.png" alt="Logo" class="footer__logo" />
-      </a>
+      <img src="img/icon.png" alt="Logo" class="footer__logo" />
       <div>
         <p class="footer__copyright center-text">
           &copy; Copyright <span class="year">2020</span> Bankist App.

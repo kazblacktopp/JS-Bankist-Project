@@ -1,5 +1,19 @@
 'use strict';
 
+////////////////
+// DOM elements
+
+const navBarEl = document.querySelector('.nav');
+const sectionHeroEl = document.querySelector('.section__hero');
+const tabsContainerEl = document.querySelector('.operations__tab-container');
+const tabsEl = document.querySelectorAll('.operations__tab');
+const tabsContentEl = document.querySelectorAll('.operations__content');
+const yearEl = document.querySelector('.year');
+const openModalBtns = document.querySelectorAll('.btn__show-modal');
+const closeModalBtn = document.querySelector('.btn__close-modal');
+const modalEl = document.querySelector('.modal');
+const overlayEl = document.querySelector('.overlay');
+
 ////////////////////////////////////////////////////////////////
 // Fix for flexbox gap property missing in some Safari browsers
 
@@ -30,9 +44,6 @@ if (!checkFlexGap()) {
 ///////////////////////////////////////////////
 // Create sticky navigation for all browsers
 
-const sectionHeroEl = document.querySelector('.section__hero');
-const navBarEl = document.querySelector('.nav');
-
 // Get height of nav bar and convert to negative pixel string
 const navBarOffset = '-' + navBarEl.offsetHeight + 'px';
 
@@ -52,74 +63,35 @@ obs.observe(sectionHeroEl);
 
 ///////////////////////////////////
 // Update copyright year in footer
-
-const year = document.querySelector('.year');
 const currentYear = new Date().getFullYear();
 
-year.textContent = currentYear;
+yearEl.textContent = currentYear;
 
 ////////////////////////////////////////////
 // Create smooth scrolling for all browsers
 
-const alllinkEls = document.querySelectorAll('a:link');
+document.body.addEventListener('click', function (e) {
+  const targetEl = e.target.closest('.nav__link');
 
-alllinkEls.forEach(link => {
-  link.addEventListener('click', e => {
-    const href = link.getAttribute('href');
+  if (!targetEl) return;
 
-    if (!href.startsWith('http')) e.preventDefault();
+  const href = targetEl.getAttribute('href');
 
-    // Scroll back to top of page
-    if (href === '#') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+  if (!href.startsWith('http')) e.preventDefault();
 
-    // Scroll to relevant section on page
-    if (href !== '#' && href.startsWith('#')) {
-      const sectionEl = document.querySelector(href);
-      sectionEl.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  });
-});
+  // Scroll back to top of page
+  if (href === '#') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
 
-const btnScrollToEl = document.querySelector('.btn__scroll-to');
-const section1El = document.getElementById('section--1');
-
-btnScrollToEl.addEventListener('click', e => {
-  e.preventDefault();
-  section1El.scrollIntoView({ behavior: 'smooth' });
-});
-
-/////////////////////////
-// Animate modal overlay
-
-const openModalBtns = document.querySelectorAll('.btn__show-modal');
-const closeModalBtn = document.querySelector('.btn__close-modal');
-const modalEl = document.querySelector('.modal');
-const overlayEl = document.querySelector('.overlay');
-
-const openModal = e => {
-  e.preventDefault();
-  modalEl.classList.remove('hidden');
-  overlayEl.classList.remove('hidden');
-};
-
-const closeModal = () => {
-  modalEl.classList.add('hidden');
-  overlayEl.classList.add('hidden');
-};
-
-openModalBtns.forEach(btn => {
-  btn.addEventListener('click', openModal);
-});
-
-closeModalBtn.addEventListener('click', closeModal);
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) closeModal();
+  // Scroll to relevant section on page
+  if (href !== '#' && href.startsWith('#')) {
+    const sectionEl = document.querySelector(href);
+    sectionEl.scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
 });

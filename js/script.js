@@ -143,3 +143,22 @@ tabsContainerEl.addEventListener('click', e => {
     .querySelector(`.operations__content--${tabNumber}`)
     .classList.add('operations__content--active');
 });
+
+/////////////////////////////////////////
+// Create navigation menu fade animation
+
+const fadeEffect = function (evt) {
+  if (evt.target.classList.contains('nav__link')) {
+    const link = evt.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    siblings.forEach(el => {
+      // Animate fade for sibling elements except logo
+      if (link !== el && !el.querySelector('.nav__logo')) {
+        el.style.opacity = this;
+      }
+    });
+  }
+};
+
+navBarEl.addEventListener('mouseover', fadeEffect.bind(0.5));
+navBarEl.addEventListener('mouseout', fadeEffect.bind(1));

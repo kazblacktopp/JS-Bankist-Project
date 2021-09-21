@@ -3,6 +3,7 @@
 ////////////////
 // DOM elements
 
+const allSections = document.querySelectorAll('.section');
 const navBarEl = document.querySelector('.nav');
 const sectionHeroEl = document.querySelector('.section__hero');
 const tabsContainerEl = document.querySelector('.operations__tab-container');
@@ -49,18 +50,19 @@ const navBarOffset = `-${navBarEl.offsetHeight}px`;
 
 const stickyNav = entries => {
   const ent = entries[0];
+
   if (!ent.isIntersecting) document.body.classList.add('js-sticky');
   else document.body.classList.remove('js-sticky');
 };
 
-const obsOptions = {
+const stickyOptions = {
   root: null /* Viewport */,
   threshold: 0,
   rootMargin: navBarOffset,
 };
 
-const obs = new IntersectionObserver(stickyNav, obsOptions);
-obs.observe(sectionHeroEl);
+const stickyObserver = new IntersectionObserver(stickyNav, stickyOptions);
+stickyObserver.observe(sectionHeroEl);
 
 ///////////////////////////////////
 // Update copyright year in footer
@@ -163,3 +165,27 @@ const fadeEffect = function (evt) {
 
 navBarEl.addEventListener('mouseover', fadeEffect.bind(0.5));
 navBarEl.addEventListener('mouseout', fadeEffect.bind(1));
+
+/////////////////////////////
+// Reveal sections on scroll
+
+const revealSection = (entries, observer) => {
+  const [entry] = entries; /* entry = entries[0] */
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section__hidden');
+  observer.unobserve(entry.target);
+};
+
+const revealOptions = {
+  root: null,
+  threshold: 0.15,
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, revealOptions);
+
+allSections.forEach(section => {
+  section.classList.add('section__hidden');
+  sectionObserver.observe(section);
+});

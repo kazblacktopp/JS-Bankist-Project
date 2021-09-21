@@ -489,6 +489,6 @@
   margin-top: var(--nav-bar-height);
 }
 
-.js-sticky .nav {
+.js-nav-shrink.nav {
   height: 6.4rem;
 }

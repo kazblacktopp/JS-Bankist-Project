@@ -70,6 +70,24 @@ const currentYear = new Date().getFullYear();
 
 yearEl.textContent = currentYear;
 
+//////////////////////////////////////////
+// Create shrink nav bar effect on scroll
+
+const shrinkNav = entries => {
+  const ent = entries[0];
+
+  if (!ent.isIntersecting) navBarEl.classList.add('js-nav-shrink');
+  else navBarEl.classList.remove('js-nav-shrink');
+};
+
+const shrinkOptions = {
+  root: null /* Viewport */,
+  threshold: 0,
+};
+
+const navShrinkObserver = new IntersectionObserver(shrinkNav, shrinkOptions);
+navShrinkObserver.observe(sectionHeroEl);
+
 ////////////////////////////////////////////
 // Create smooth scrolling for all browsers
 

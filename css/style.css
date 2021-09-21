@@ -67,7 +67,7 @@
 .nav {
   justify-content: space-between;
   height: var(--nav-bar-height);
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .nav__logo {

@@ -91,6 +91,14 @@ button,
   transition: all 0.3s;
 }
 
+img {
+  transition: filter 0.5s;
+}
+
+.lazy-img {
+  filter: blur(20px);
+}
+
 .heading__primary {
   font-size: 5.4rem;
   line-height: 1.4;

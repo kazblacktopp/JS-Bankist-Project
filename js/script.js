@@ -207,3 +207,29 @@ allSections.forEach(section => {
   section.classList.add('section__hidden');
   sectionObserver.observe(section);
 });
+
+/////////////////////////////////////
+// Lazy load Features section images
+
+const featureImgs = document.querySelectorAll('img[data-src]');
+
+const lazyLoad = entries => {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', () =>
+    entry.target.classList.remove('lazy-img')
+  );
+};
+
+const lazyOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+};
+
+const imgObserver = new IntersectionObserver(lazyLoad, lazyOptions);
+
+featureImgs.forEach(img => imgObserver.observe(img));

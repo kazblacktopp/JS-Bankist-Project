@@ -1,6 +1,6 @@
 /*
 COLORS:
-Greys: #222, #444, #ddd, #f3f3f3
+Greys: #222, #333, #444, #666, #888, #ddd, #f3f3f3
 
 - FONT SIZE SYSTEM (px)
   10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
@@ -78,6 +78,10 @@ blockquote {
   font-size: 1.7rem;
 }
 
+p {
+  color: #666;
+}
+
 button {
   font-family: inherit;
   background: none;
@@ -140,13 +144,8 @@ img {
 }
 
 .flex,
-.align-items__center,
-.center__v-h {
+.align-items__center {
   align-items: center;
-}
-
-.center__v-h {
-  justify-items: center;
 }
 
 .grid {
@@ -219,7 +218,15 @@ img {
 /********** HELPER STYLES **********/
 /***********************************/
 
-.margin-bottom--lge {
+.margin-bottom--sm {
+  margin-bottom: 4rem;
+}
+
+.margin-bottom--md {
+  margin-bottom: 6rem;
+}
+
+.margin-bottom--lg {
   margin-bottom: 12rem;
 }
 

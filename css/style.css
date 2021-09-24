@@ -47,8 +47,15 @@
 }
 
 .testimonial::before,
+.slider__btn,
+.dots,
 .btn__close-modal {
   position: absolute;
+}
+
+.dots,
+.modal {
+  left: 50%;
 }
 
 .modal,
@@ -138,6 +145,7 @@
 .features {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
+  justify-items: center;
   padding: 0 12rem;
 }
 
@@ -250,15 +258,18 @@
 /***************************************/
 
 .slider {
-  grid-template-columns: 10rem 1fr 10rem;
-  column-gap: 7.5rem;
-  row-gap: 5.5rem;
+  height: 50rem;
   max-width: 100rem;
-  padding: 5rem 0 2.5rem;
 }
 
-.slide--1 {
-  display: block;
+.slider,
+.testimonial {
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 50rem;
 }
 
 .slide--2,
@@ -267,15 +278,15 @@
 }
 
 .testimonial {
-  position: relative;
+  width: 65%;
 }
 
 .testimonial::before {
   content: '\201C';
   font-size: 20rem;
-  top: 37px;
-  left: -68px;
-  line-height: 1rem;
+  top: -5.7rem;
+  left: -6.8rem;
+  line-height: 1;
 }
 
 .testimonial__heading {
@@ -284,6 +295,7 @@
 
 .testimonial__text {
   margin-bottom: 3.5rem;
+  color: #666;
 }
 
 .testimonial__author {
@@ -307,28 +319,41 @@
 }
 
 .slider__btn {
-  width: 6rem;
-  height: 6rem;
-  font-size: 3rem;
-  grid-row: 1 / 2;
+  width: 5.5rem;
+  height: 5.5rem;
+  font-size: 3.25rem;
+  color: #333;
+  top: 50%;
+  line-height: 1;
 }
 
 .slider__btn--left {
-  grid-column: 1 / 2;
+  transform: translate(-50%, -50%);
+  left: 6%;
 }
 
 .slider__btn--right {
-  grid-column: 3 / 4;
+  transform: translate(50%, -50%);
+  right: 6%;
 }
 
 .dots {
   gap: 1.8rem;
+  bottom: 5%;
+  transform: translateX(-50%);
 }
 
 .dots__dot {
   width: 1rem;
   height: 1rem;
   background-color: #b9b9b9;
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+
+.dots__dot--active {
+  background-color: #888;
+  opacity: 1;
 }
 
 /**************************************/
@@ -338,10 +363,6 @@
 .section__sign-up {
   padding: 10rem 3rem;
   border-bottom: 1px solid #444;
-}
-
-.section__sign-up .section__header {
-  margin-bottom: 6rem;
 }
 
 .section__sign-up .section__description {
@@ -399,7 +420,6 @@
   max-width: 60rem;
   background: #f3f3f3;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
   padding: 6rem 6rem 5rem;

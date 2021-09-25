@@ -233,3 +233,67 @@ const lazyOptions = {
 const imgObserver = new IntersectionObserver(lazyLoad, lazyOptions);
 
 featureImgs.forEach(img => imgObserver.observe(img));
+
+////////////////////////
+// Testimonial carousal
+
+const slideEls = document.querySelectorAll('.slide');
+const btnRight = document.querySelector('.slider__btn--right');
+const btnLeft = document.querySelector('.slider__btn--left');
+const dotsContainer = document.querySelector('.dots');
+const maxSlides = slideEls.length;
+let slidePosition = 0;
+
+const createDots = () => {
+  slideEls.forEach((_, i) => {
+    dotsContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+
+const activateDot = () => {
+  const dotEls = document.querySelectorAll('.dots__dot');
+  dotEls.forEach(dot => {
+    dot.classList.remove('dots__dot--active');
+  });
+  dotEls[slidePosition].classList.add('dots__dot--active');
+  dotsContainer.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.classList.contains('dots__dot')) {
+      slidePosition = e.target.dataset.slide;
+      positionSlide();
+    }
+  });
+};
+
+const nextSlide = () => {
+  if (slidePosition < maxSlides - 1) slidePosition++;
+  else slidePosition = 0;
+  positionSlide();
+};
+
+const prevSlide = () => {
+  if (slidePosition > 0) slidePosition--;
+  else slidePosition = maxSlides - 1;
+  positionSlide();
+};
+
+const positionSlide = () => {
+  slideEls.forEach((slide, i) => {
+    slide.style.transform = `translateX(${(i - slidePosition) * 100}%)`;
+  });
+  activateDot();
+};
+
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
+
+const init = () => {
+  createDots();
+  activateDot();
+  positionSlide();
+};
+
+init();

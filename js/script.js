@@ -181,6 +181,7 @@ const fadeEffect = function (evt) {
   }
 };
 
+// bind value becomes 'this' value in callback function
 navBarEl.addEventListener('mouseover', fadeEffect.bind(0.5));
 navBarEl.addEventListener('mouseout', fadeEffect.bind(1));
 
@@ -237,63 +238,76 @@ featureImgs.forEach(img => imgObserver.observe(img));
 ////////////////////////
 // Testimonial carousal
 
-const slideEls = document.querySelectorAll('.slide');
-const btnRight = document.querySelector('.slider__btn--right');
-const btnLeft = document.querySelector('.slider__btn--left');
-const dotsContainer = document.querySelector('.dots');
-const maxSlides = slideEls.length;
-let slidePosition = 0;
+const slider = () => {
+  const slideEls = document.querySelectorAll('.slide');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const dotsContainer = document.querySelector('.dots');
+  const maxSlides = slideEls.length;
+  let slidePosition = 0;
 
-const createDots = () => {
-  slideEls.forEach((_, i) => {
-    dotsContainer.insertAdjacentHTML(
-      'beforeend',
-      `<button class="dots__dot" data-slide="${i}"></button>`
-    );
-  });
-};
+  const createDots = () => {
+    slideEls.forEach((_, i) => {
+      dotsContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
 
-const activateDot = () => {
-  const dotEls = document.querySelectorAll('.dots__dot');
-  dotEls.forEach(dot => {
-    dot.classList.remove('dots__dot--active');
-  });
-  dotEls[slidePosition].classList.add('dots__dot--active');
+  const goToSlide = slide => {
+    positionSlide(slide);
+    activateDot(slide);
+  };
+
+  const positionSlide = curSlide => {
+    slideEls.forEach((slide, i) => {
+      slide.style.transform = `translateX(${(i - curSlide) * 100}%)`;
+    });
+  };
+
+  const activateDot = slide => {
+    const dotEls = document.querySelectorAll('.dots__dot');
+    dotEls.forEach(dot => {
+      dot.classList.remove('dots__dot--active');
+    });
+    dotEls[slide].classList.add('dots__dot--active');
+  };
+
+  const nextSlide = () => {
+    if (slidePosition < maxSlides - 1) slidePosition++;
+    else slidePosition = 0;
+    goToSlide(slidePosition);
+  };
+
+  const prevSlide = () => {
+    if (slidePosition > 0) slidePosition--;
+    else slidePosition = maxSlides - 1;
+    goToSlide(slidePosition);
+  };
+
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
   dotsContainer.addEventListener('click', e => {
     e.preventDefault();
     if (e.target.classList.contains('dots__dot')) {
-      slidePosition = e.target.dataset.slide;
-      positionSlide();
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
     }
   });
-};
 
-const nextSlide = () => {
-  if (slidePosition < maxSlides - 1) slidePosition++;
-  else slidePosition = 0;
-  positionSlide();
-};
-
-const prevSlide = () => {
-  if (slidePosition > 0) slidePosition--;
-  else slidePosition = maxSlides - 1;
-  positionSlide();
-};
-
-const positionSlide = () => {
-  slideEls.forEach((slide, i) => {
-    slide.style.transform = `translateX(${(i - slidePosition) * 100}%)`;
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === 'ArrowLeft') prevSlide();
   });
-  activateDot();
+
+  const init = () => {
+    createDots();
+    goToSlide(0);
+  };
+
+  init();
 };
 
-btnRight.addEventListener('click', nextSlide);
-btnLeft.addEventListener('click', prevSlide);
-
-const init = () => {
-  createDots();
-  activateDot();
-  positionSlide();
-};
-
-init();
+slider();

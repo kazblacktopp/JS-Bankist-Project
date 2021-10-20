@@ -75,12 +75,13 @@
 
 .header {
   padding: 0 9rem;
-}
-
-.nav {
   justify-content: space-between;
   height: var(--nav-bar-height);
   transition: all 0.5s;
+}
+
+.header > a {
+  line-height: 1;
 }
 
 .nav__logo {
@@ -103,6 +104,21 @@
 .nav__link--btn:hover,
 .nav__link--btn:active {
   background-color: var(--color-primary-darker);
+}
+
+/*********** Mobile navigation ***********/
+
+.nav-btn-mobile {
+  display: none;
+  border: none;
+  background-color: transparent;
+}
+
+.nav-icon-mobile {
+  display: none;
+  width: 4.8rem;
+  height: 4.8rem;
+  color: #333;
 }
 
 /**************************************/
@@ -516,6 +532,6 @@
   margin-top: var(--nav-bar-height);
 }
 
-.js-nav-shrink.nav {
+.js-nav-shrink.header {
   height: 6.4rem;
 }

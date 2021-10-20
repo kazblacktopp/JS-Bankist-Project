@@ -11,16 +11,27 @@
     <link rel="icon" href="img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/queries.css" />
     <title>Bankist | When Banking meets Minimalist</title>
+    <script
+      defer
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      defer
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script defer src="js/script.js"></script>
   </head>
   <body>
-    <header class="header">
-      <nav class="nav flex">
-        <a href="#" class="nav__link">
-          <img src="img/logo.png" alt="Bankist Logo" class="nav__logo" />
-        </a>
-        <ul class="nav__links flex">
+    <header class="header flex">
+      <a href="#" class="nav__link">
+        <img src="img/logo.png" alt="Bankist Logo" class="nav__logo" />
+      </a>
+      <nav class="nav">
+        <ul class="main-nav-list nav__links flex">
           <li>
             <a href="#section--1" class="nav__link">Features</a>
           </li>
@@ -37,6 +48,10 @@
           </li>
         </ul>
       </nav>
+      <button class="nav-btn-mobile">
+        <ion-icon class="nav-icon-mobile" name="menu-outline"></ion-icon>
+        <ion-icon class="nav-icon-mobile" name="close-outline"></ion-icon>
+      </button>
     </header>
     <main>
       <section class="section__hero flex">

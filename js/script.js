@@ -4,7 +4,9 @@
 // DOM elements
 
 const allSections = document.querySelectorAll('.section');
+const headerEl = document.querySelector('.header');
 const navBarEl = document.querySelector('.nav');
+const mobileNavBtnEl = document.querySelector('.nav-btn-mobile');
 const sectionHeroEl = document.querySelector('.section__hero');
 const tabsContainerEl = document.querySelector('.operations__tab-container');
 const tabsEl = document.querySelectorAll('.operations__tab');
@@ -14,6 +16,13 @@ const openModalBtns = document.querySelectorAll('.btn__show-modal');
 const closeModalBtn = document.querySelector('.btn__close-modal');
 const modalEl = document.querySelector('.modal');
 const overlayEl = document.querySelector('.overlay');
+
+//////////////////////////////////////////////////
+// Animate mobile navigation
+
+mobileNavBtnEl.addEventListener('click', () => {
+  headerEl.classList.toggle('nav-open');
+});
 
 ////////////////////////////////////////////////////////////////
 // Fix for flexbox gap property missing in some Safari browsers
@@ -46,7 +55,7 @@ if (!checkFlexGap()) {
 // Create sticky navigation for all browsers
 
 // Get height of nav bar and convert to negative pixel string
-const navBarOffset = `-${navBarEl.offsetHeight}px`;
+const headerOffset = `-${headerEl.offsetHeight}px`;
 
 const stickyNav = entries => {
   const ent = entries[0];
@@ -58,7 +67,7 @@ const stickyNav = entries => {
 const stickyOptions = {
   root: null /* Viewport */,
   threshold: 0,
-  rootMargin: navBarOffset,
+  rootMargin: headerOffset,
 };
 
 const stickyObserver = new IntersectionObserver(stickyNav, stickyOptions);
@@ -76,8 +85,8 @@ yearEl.textContent = currentYear;
 const shrinkNav = entries => {
   const ent = entries[0];
 
-  if (!ent.isIntersecting) navBarEl.classList.add('js-nav-shrink');
-  else navBarEl.classList.remove('js-nav-shrink');
+  if (!ent.isIntersecting) headerEl.classList.add('js-nav-shrink');
+  else headerEl.classList.remove('js-nav-shrink');
 };
 
 const shrinkOptions = {
@@ -114,6 +123,11 @@ document.body.addEventListener('click', function (e) {
     sectionEl.scrollIntoView({
       behavior: 'smooth',
     });
+  }
+
+  // Close mobile navigation when link clicked
+  if (e.path[2].classList.contains('main-nav-list')) {
+    headerEl.classList.toggle('nav-open');
   }
 });
 

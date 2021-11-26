@@ -1,13 +1,15 @@
-/* BELOW 960px (Tablets) */
+/* REFACTOR - START */
 
-@media (max-width: 60em) {
+/* BELOW 769px (Tablets) */
+
+@media (max-width: 48em) {
   html {
     font-size: 50%;
   }
 
   .nav-btn-mobile {
     display: block;
-    z-index: 9999;
+    z-index: 2;
   }
 
   .nav-icon-mobile[name='menu-outline'] {
@@ -32,7 +34,7 @@
     pointer-events: none;
     visibility: hidden;
     transition: all 0.5s ease-in;
-    z-index: 99;
+    z-index: 1;
   }
 
   .nav-open .main-nav-list {
@@ -50,3 +52,49 @@
     display: block;
   }
 }
+
+/* BELOW 960px (Tablets) */
+
+@media (max-width: 60em) {
+}
+
+/* Below 1220px */
+
+@media (max-width: 76em) {
+  /* REFACTOR */
+  .features {
+    width: 100%;
+  }
+
+  .operations {
+    width: 100%;
+  }
+}
+
+/* Below 1281px width and above 816px height(Laptop - S) */
+
+@media (max-height: 52vw), (max-width: 164vh) {
+  .section__hero {
+    height: calc(56.25vw - var(--nav-bar-height));
+  }
+
+  .hero__background-container {
+    height: 56.25vw;
+  }
+
+  .hero__background {
+    background: url(/img/coins-sprounting-1920x1080.jpg) top / contain no-repeat;
+    width: 100vw;
+    height: 100%;
+  }
+}
+
+/* Above 1919px width (Desktop-L) */
+
+@media (min-width: 120em) {
+  html {
+    font-size: 0.521vw;
+  }
+}
+
+/* REFACTOR - END */

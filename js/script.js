@@ -4,7 +4,7 @@
 // DOM elements
 
 const allSections = document.querySelectorAll('.section');
-const headerEl = document.querySelector('.header');
+const navSectionEl = document.querySelector('.section__navigation');
 const navBarEl = document.querySelector('.nav');
 const mobileNavBtnEl = document.querySelector('.nav-btn-mobile');
 const sectionHeroEl = document.querySelector('.section__hero');
@@ -21,7 +21,7 @@ const overlayEl = document.querySelector('.overlay');
 // Animate mobile navigation
 
 mobileNavBtnEl.addEventListener('click', () => {
-  headerEl.classList.toggle('nav-open');
+  navSectionEl.classList.toggle('nav-open');
 });
 
 ////////////////////////////////////////////////////////////////
@@ -55,7 +55,8 @@ if (!checkFlexGap()) {
 // Create sticky navigation for all browsers
 
 // Get height of nav bar and convert to negative pixel string
-const headerOffset = `-${headerEl.offsetHeight}px`;
+const headerOffsetHeight = navSectionEl.offsetHeight;
+const stickyHeaderOffset = `-${headerOffsetHeight}px`;
 
 const stickyNav = entries => {
   const ent = entries[0];
@@ -67,7 +68,7 @@ const stickyNav = entries => {
 const stickyOptions = {
   root: null /* Viewport */,
   threshold: 0,
-  rootMargin: headerOffset,
+  rootMargin: stickyHeaderOffset,
 };
 
 const stickyObserver = new IntersectionObserver(stickyNav, stickyOptions);
@@ -82,16 +83,19 @@ yearEl.textContent = currentYear;
 //////////////////////////////////////////
 // Create shrink nav bar effect on scroll
 
+const shrinkHeaderOffset = `-${headerOffsetHeight / 2}px`;
+
 const shrinkNav = entries => {
   const ent = entries[0];
 
-  if (!ent.isIntersecting) headerEl.classList.add('js-nav-shrink');
-  else headerEl.classList.remove('js-nav-shrink');
+  if (!ent.isIntersecting) navSectionEl.classList.add('js-nav-shrink');
+  else navSectionEl.classList.remove('js-nav-shrink');
 };
 
 const shrinkOptions = {
   root: null /* Viewport */,
   threshold: 0,
+  rootMargin: shrinkHeaderOffset,
 };
 
 const navShrinkObserver = new IntersectionObserver(shrinkNav, shrinkOptions);
@@ -127,7 +131,7 @@ document.body.addEventListener('click', function (e) {
 
   // Close mobile navigation when link clicked
   if (e.path[2].classList.contains('main-nav-list')) {
-    headerEl.classList.toggle('nav-open');
+    navSectionEl.classList.toggle('nav-open');
   }
 });
 
